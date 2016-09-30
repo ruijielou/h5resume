@@ -1,0 +1,43 @@
+.music {
+  position: fixed;
+  right: 1rem;
+  top: 1rem;
+  z-index: 999;
+  width: 2rem;
+  height: 2rem;
+  background: url(../images/music.png) no-repeat;
+  background-size: 100% 100%;
+  cursor: pointer;
+}
+
+.first .first_img {
+  width: 40rem;
+  max-width: 40rem;
+  height: 40rem;
+  background: url(../images/first-img.png) no-repeat;
+  margin: auto;
+   background-size: cover;
+   position: absolute;
+   left: 50%;
+   margin-left: -20rem;
+   top: 50%;
+   margin-top: -20rem;
+   padding: 12rem;
+}
+.first_content {
+  text-align: center;
+  font-size: 1.5rem;
+}
+.first_content span:last-child{
+  display: block;
+  width: 3rem;
+  height: 3.2rem;
+  background: url(../images/first-click.png) no-repeat;
+  background: cover;
+  margin: 0 auto;
+
+}
+
+
+
+
