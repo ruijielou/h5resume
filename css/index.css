@@ -9,35 +9,393 @@
   background-size: 100% 100%;
   cursor: pointer;
 }
-
-.first .first_img {
-  width: 40rem;
-  max-width: 40rem;
-  height: 40rem;
-  background: url(../images/first-img.png) no-repeat;
-  margin: auto;
-   background-size: cover;
-   position: absolute;
-   left: 50%;
-   margin-left: -20rem;
-   top: 50%;
-   margin-top: -20rem;
-   padding: 12rem;
+.slidedown {
+  position: absolute;
+  left: 50%;
+  width: 3rem;
+  height: 3rem;
+  background: url(../images/down.png) no-repeat center;
+  background-size: cover;
+  transform: rotate(180deg);
+  z-index: 9999;
+  animation: down 1s infinite linear;
+  cursor: pointer;
 }
+@-webkit-keyframes down {
+  0%{bottom: 8%}
+  50%{bottom: 6%}
+  100%{bottom: 8%}
+}
+/*第一屏start*/
+.first .firstImg_outline {
+  width: 30rem;
+  height: 30rem;
+  border-radius: 50%;
+  border-left: 2px dashed #fff;
+  padding: 1rem;
+  margin: 100px auto;
+}
+.first .first_img {
+ width: 100%;
+ height: 100%;
+ margin: 0 auto;
+ border: 2px dashed #ccc;
+ border-radius: 50%;
+ overflow: hidden;
+}
+.active .firstImg_outline {
+  -webkit-animation: first 1s linear forwards;
+}
+@-webkit-keyframes first{
+  0%{
+    transform: scale(-1);
+  }
+  50%{
+    transform: scale(0);
+  }
+  100%{
+    transform: scale(1) ;
+  }
+}
+
 .first_content {
   text-align: center;
   font-size: 1.5rem;
+  width: 100%;
+  height: 100%;
+  background: url(../images/firstbg.png) no-repeat center;
+  background-size: 150% 150%;
+  transform: translate(0,3.7rem);
+  padding: 4rem 0;
+}
+
+.first_content p {
+  opacity: 0;
 }
 .first_content span:last-child{
   display: block;
-  width: 3rem;
-  height: 3.2rem;
+  width: 2rem;
+  height: 3rem;
+  opacity: 0;
   background: url(../images/first-click.png) no-repeat;
-  background: cover;
+  background-size: 2rem;
   margin: 0 auto;
+}
+.active .first_content span:last-child {
+   -webkit-animation: firsttext 2s linear 5s forwards;
+}
+.active .first_content p:nth-child(1){
+  -webkit-animation: firsttext 2s linear 2s forwards;
+}
+.active .first_content p:nth-child(2){
+  -webkit-animation: firsttext 2s linear 2.5s forwards;
+}
+.active .first_content p:nth-child(3){
+  -webkit-animation: firsttext 2s linear 3s forwards;
+}
+.active .first_content p:nth-child(4){
+  -webkit-animation: firsttext 2s linear 3.5s forwards;
+}
+.active .first_content p:nth-child(5){
+  -webkit-animation: firsttext 2s linear 4s forwards;
+}
+@-webkit-keyframes firsttext{
+  0% {
+    opacity: 0;
+  }
+  50%{
+    opacity: 0.5;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+/*第一屏结束*/
 
+/*第二屏start*/
+.second_top {
+text-align: center;
+}
+.second_top_dashed {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  border-left: 2px dashed #fff;
+  border-bottom: 2px dashed #fff;
+  padding: 1rem;
+  margin: auto;
+  transform: translate(-50rem);
+  transition: all 1s ease;
+}
+.active .second_top_dashed {
+  transform: translate(0rem);
+}
+.second_top_solid {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px dashed #fff;
+  padding: 1rem;
+}
+.second_top_solid img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
 }
 
+.second_bottom{
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  bottom: 0;
+  left:0;
+  transform: translate(100rem);
+  transition: all 1s ease;
+}
+.second_bottom img {
+  width: 60%;
+  height: 20rem;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -30%;
+}
+.active .second_bottom {
+  transform: translate(0rem);
+}
+/*第二屏end*/
 
+/*第三屏start*/
+#sectionContent .third {padding: 2rem 0;}
+ .third .third_top {
+  width: 100%;
+  height: 50%;
+  background: url(../images/third-top.png) no-repeat center top;
+  background-size: 60% 80%;
+  transform: translate(100rem);
+  transition: all 1s ease;
+ }
 
+.third .third_bottom {
+  width: 100%;
+  height: 50%;
+  background: url(../images/third-bottom.png) no-repeat center;
+  background-size: 100% 70%;
+  transform: translate(-50rem);
+  transition: all 1s ease;
+  margin-bottom: 3rem;
+}
+.active.third .third_top, .active.third .third_bottom {
+   transform: translate(0rem);
+ }
 
+/*第三屏end*/
+/*第四屏start*/
+#sectionContent .fourth {
+  padding: 0;
+}
+.fourth_center {
+  width: 100%;
+}
+.active .fourth_center {
+  animation: show 3s;
+}
+@keyframes show {
+      0% {
+        transform: scale(0);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+.fourth_center table {
+  width: 100%;
+}
+
+.fourth_center tr td:nth-child(1){
+  width: 40%;
+  text-align: right;
+  padding: 1.2rem;
+  position: relative;
+}
+.fourth_center tr td:nth-child(1)::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -0.25rem;
+  right: -0.35rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 50%;
+}
+.fourth_center tr td:nth-child(2){
+  width: 60%;
+  border-bottom: 1px dotted #fff;
+  border-left: 1px dotted #fff;
+  text-align: left;
+  padding: 1.2rem;
+  position: relative;
+
+}
+.fourth_center tr td:nth-child(2)::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -0.5rem;
+  left: -0.5rem;
+  width: 1rem;
+  height: 1rem;
+  box-sizing: border-box;
+  border: 1px dashed #fff;
+  border-radius: 50%;
+}
+.fourth_center tr:last-child{
+  border-bottom: 1px dotted #fff;
+}
+.right_border::before {
+  content: "";
+  width: 0;
+  height: 20rem;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  right: -1px;
+  border-right: 1px dotted #fff;
+}
+
+.fourth_bottom {
+  position: relative;
+  bottom: 0;
+  height: 18rem;
+  margin-top: 3rem;
+}
+.fourth_bottom .cloud1, .fourth_bottom .cloud2 {
+  width: 100%;
+  height: 100%;
+  background: url(../images/cloud2.png) no-repeat center;
+  background-size: 120% 80%;
+  position: absolute;
+}
+.fourth_bottom .cloud1 {
+  top: 2rem;
+  left: 0;
+  transform: rotateY(180deg);
+}
+.fourth_bottom .cloud2 {
+  top: -2rem;
+  left: 0rem;
+}
+.active .fourth_bottom .cloud1 {
+  animation: cloudrun1 3s infinite linear;
+}
+.active .fourth_bottom .cloud2 {
+  animation: cloudrun2 3s infinite 0.5s linear;
+}
+@-webkit-keyframes cloudrun1 {
+
+ 50% {
+  top: -2rem;
+ }
+
+}
+@-webkit-keyframes cloudrun2 {
+
+ 50% {
+  top: 2rem;
+ }
+
+}
+/*第四屏end*/
+
+/*第五屏start*/
+.fifth_bottom {
+   margin: 10rem auto;
+   /*transform: scale(0.5);*/
+   background: url(../images/HCJ.png) no-repeat center center;
+   background-size: 100% auto;
+   width: 100%;
+   height: 40rem;
+}
+.active .fifth_bottom {
+  animation: slideleft 2s;
+}
+@keyframes slideleft {
+      0% {
+        transform: translate(-100%, 0) scale(0);
+        opacity: 0;
+      }
+
+      100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+      }
+    }
+/*第五屏end*/
+/*第六屏start*/
+#sectionContent .sixth {
+  padding: 0;
+}
+.sixth_bottom {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: url(../images/rote.png) no-repeat top center;
+  background-size: 100% auto;
+  z-index: 3;
+  /*top: 200%;*/
+}
+.active .sixth_bottom {
+  animation: slidebottom 1s linear;
+}
+.sixth_bottom div {
+  position: absolute;
+  border-bottom: 2px dashed #fff;
+  margin: 0 1rem;
+  padding: 0 0.5rem;
+  font-size: 1.3rem;
+}
+.sixth_bottom div p {
+  margin: 0.5rem;
+}
+.sixth_bottom .sixth_one {
+  top: 40%;
+  left: -100%;
+}
+.active .sixth_bottom .sixth_one {
+  animation: sixthone 1s 2s forwards linear;
+}
+.sixth_bottom .sixth_two {
+  top: 30%;
+  right: -100%;
+}
+.sixth_bottom .sixth_three {
+  top: 50%;
+  right: -100%;
+}
+.active .sixth_bottom .sixth_two {
+  animation: sixthright 1s 1s forwards linear;
+}
+.active .sixth_bottom .sixth_three {
+  animation: sixthright 1s 3s forwards linear;
+}
+@keyframes slidebottom {
+  0% {
+    top: 150%;
+  }
+   100% {
+    top: 0;
+  }
+}
+@keyframes sixthone {
+  0%{left: -100%;}
+  100%{left: 0;}
+}
+@keyframes sixthright {
+  0%{right: -100%;}
+  100%{right: 0;}
+}
+/*第六屏end*/

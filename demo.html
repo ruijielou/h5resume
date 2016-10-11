@@ -18,11 +18,34 @@
   </style>
 </head>
 <body>
-  <div class="box">
+<div class="check">
+<input type="checkbox" name="" id="one">
+  <div class="other">
+<input type="checkbox" name="" id="two">
+
+  <input type="checkbox" name="" id="three">
+
+  </div>
+</div>
+  <!-- <div class="box">
     <div class="son">
       <p>这是文字</p>
       <span>这是span</span>
     </div>
-  </div>
+  </div> -->
+  <script>
+    var one = document.querySelector("#one");
+    var two = document.querySelector('#two');
+    one.addEventListener("click", function(){
+      var checkeds = one.checked;
+      console.log(checkeds);
+      two.checked = checkeds;
+    });
+
+    var a = 3.1415926 + "";
+    var str = a.substring(0,a.indexOf(".") + 3);
+    console.log( typeof str);
+
+  </script>
 </body>
 </html>

@@ -1,28 +1,25 @@
 /* global fullpage */
 "use strict";
 window.onload = function () {
+
   fullpage.init('#sectionContent', {
     // autoScroll: 3000,
     // pageSpeed: 500,
+    loopSection: true,
     beforeLeave: function (leaveIndex, nowIndex) {
-      if (nowIndex === 2) {
-        //console.log('You will leave page 2');
-      }
-      //console.log(this, leaveIndex, nowIndex);
-    },
-    afterLoad: function (afterIndex) {
-      if (afterIndex === 2) {
-        //console.log('You will go to page 2');
-      }
-      //console.log(this, afterIndex);
-    },
-    beforeSlideLeave: function (pageIndex, slideNow, slideAfter) {
-      var _this = this;
-      var SlideNow = document.querySelector('#nowSlide');
-      SlideNow.innerHTML = 'Slide' + slideAfter;
-    },
-    afterSlideLoad: function (pageIndex, slideIndex) {
-      var _this = this;
+      down.addEventListener("click", function(){
+        fullpage.moveToNext();
+        // nowIndex++;
+        // fullpage.moveTo(nowIndex);
+      }, false)
     }
   });
+  var down = document.querySelector('#down');
+      console.log(down)
+      down.addEventListener("touchend", function(){
+        fullpage.moveToNext();
+      },true);
+       down.addEventListener("click", function(){
+        fullpage.moveToNext();
+      },true)
 };
